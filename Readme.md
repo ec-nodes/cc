@@ -22,10 +22,10 @@ The script will display a table with the following information for each monitore
 - Status: The node's status, including "Active" or "Failed".
 
 Example output:
-<br><br>Node IP -------------- Last Call ---------- Status
+<pre>Node IP -------------- Last Call ---------- Status
 <br>----------------------------------------------------------------
 <br>192.168.170.51: 03h, 43min ago - Active
-<br>191.168.170.55: 39h, 10min ago - Failed
+<br>191.168.170.55: 39h, 10min ago - Failed</pre>
 
 
 ## Usage Note
