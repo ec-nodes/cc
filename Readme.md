@@ -6,7 +6,7 @@
  ### 2: Input the data for each node in the format "NodeIP User Pass", saving with CTRL+X, using command:
  <pre> <code id="copy-command"> nano ~/data </code> </pre>
  
-  Example data format in the file:<br> <pre> <code<br>192.168.170.51 Node1 PassNode1<br>192.168.170.55 Node2 PassNode2 </code> </pre>
+  Example data format in the file:<br> <pre> <code <br>192.168.170.51 Node1 PassNode1<br>192.168.170.55 Node2 PassNode2 </code> </pre>
 
  ### 3: Execute the monitoring script using the command:
   <pre> <code id="copy-command"> python3 ~/status </code> </pre>
