@@ -1,7 +1,7 @@
 # Multiple SSH Node Monitoring
 
  ### 1: Open one of your nodes via SSH and use the following command to create the script:
-<pre> <code id="copy-command"> curl -o ~/status https://raw.githubusercontent.com/ec-nodes/cc/main/status </code> </pre>
+ <pre> <code id="copy-command"> curl -o ~/status https://raw.githubusercontent.com/ec-nodes/cc/main/status </code> </pre>
 
  ### 2: Input the data for each node in the format "NodeIP User Pass", saving with CTRL+X, using command:
  <pre> <code id="copy-command"> nano ~/data </code> </pre>
@@ -9,7 +9,7 @@
   Example data format in the file:<br><br>192.168.170.51 Node1 PassNode1<br>192.168.170.55 Node2 PassNode2
 
  ### 3: Execute the monitoring script using the command:
- <pre> <code id="copy-command"> python3 ~/status </code> </pre>
+  <pre> <code id="copy-command"> python3 ~/status </code> </pre>
  
    The script will connect to each node listed in the "data" file, retrieve status information, and display the results.
 
