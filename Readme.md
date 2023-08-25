@@ -23,7 +23,7 @@ The script will display a table with the following information for each monitore
 
 Example output:
 <br><br>Node IP -------------- Last Call ----------- Status
-<br>-------------------------------------------------------------
+<br>----------------------------------------------------------------
 <br>192.168.170.51: 03h, 43min ago - Active
 <br>191.168.170.55: 39h, 10min ago - Failed
 
