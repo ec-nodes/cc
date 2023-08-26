@@ -57,28 +57,40 @@ def check_journal(ip, username, password):
             return status
 
     except paramiko.AuthenticationException:
-        return f"{ip}: Authentication Failed"
+        return f"{ip}: Auth Failed"
     except paramiko.SSHException as e:
-        return f"{ip}: SSH Error - {e}"
+        return f"{ip}: SSH Error"
     except Exception as e:
-        return f"{ip}: {e}"
+        return f"{ip}: Error"
 
 def main():
-    print("    Node IP      Last Call      Status")
-    print("---------------------------------------")
-
     data_file = os.path.expanduser("~/data")
 
     with open(data_file, "r") as file:
         data_lines = file.readlines()
         data = [line.strip().split() for line in data_lines]
 
+    results = []
+
     with concurrent.futures.ThreadPoolExecutor() as executor:
         results = list(executor.map(lambda x: check_journal(x[0], x[1], x[2]), data))
 
+    max_ip_length = max(len(result.split(":")[0]) for result in results)
+    max_time_length = max(len(result.split(":")[1].split("-")[0].strip()) for result in results)
+    max_status_length = max(len(result.split("-")[-1].strip()) for result in results)
+
+    separator_line = f"{'─'*(max_ip_length+3)}{'─'*(max_time_length+3)}{'─'*(max_status_length+3)}"
+
+    print(separator_line)
+    print(f"{'Node IP':^{max_ip_length+2}} {'Last Call':^{max_time_length+3}} {'Status':^{max_status_length+2}}")
+    print(separator_line)
+
     for result in results:
         if result is not None:
-            print(result)
+            ip, time_status = result.split(": ")
+            time, status = time_status.split(" - ")
+            print(f"{ip:<{max_ip_length+3}} {time:<{max_time_length+3}} {status:<{max_status_length+3}}")
+            print(separator_line)
 
 if __name__ == "__main__":
     main()
